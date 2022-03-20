@@ -8,7 +8,12 @@
 import UIKit
 
 final class ViewController: UIViewController {
+    @IBOutlet private var valueTextFields: [UITextField]!
 
+    @IBOutlet weak var resultLabel: UILabel!
+
+    @IBAction func executeCalculation(_ sender: Any) {
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
