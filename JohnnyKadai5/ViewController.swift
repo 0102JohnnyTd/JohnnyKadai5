@@ -13,9 +13,17 @@ final class ViewController: UIViewController {
     @IBOutlet weak var resultLabel: UILabel!
 
     @IBAction func executeCalculation(_ sender: Any) {
+        
     }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+    }
+}
+
+private extension UITextField {
+    var textToInt: Int {
+        text.flatMap { Int($0) } ?? 0
     }
 }
