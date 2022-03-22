@@ -22,10 +22,10 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="zxY-fd-36N">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="34"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i2q-Aj-N7l">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i2q-Aj-N7l" userLabel="First Value Text Field">
                                                 <rect key="frame" x="0.0" y="0.0" width="124.5" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="÷" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xdp-QL-gth">
                                                 <rect key="frame" x="128.5" y="0.0" width="125" height="34"/>
@@ -33,10 +33,10 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hmu-8D-iba">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hmu-8D-iba" userLabel="Second Value Text Field">
                                                 <rect key="frame" x="257.5" y="0.0" width="124.5" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -48,7 +48,7 @@
                                             <action selector="executeCalculation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="g1y-VQ-AkN"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y6f-rJ-2MN">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y6f-rJ-2MN">
                                         <rect key="frame" x="0.0" y="97" width="382" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -68,8 +68,8 @@
                     </view>
                     <connections>
                         <outlet property="resultLabel" destination="Y6f-rJ-2MN" id="Vug-22-Yue"/>
-                        <outletCollection property="valueTextFields" destination="i2q-Aj-N7l" collectionClass="NSMutableArray" id="ljS-9u-dBC"/>
-                        <outletCollection property="valueTextFields" destination="hmu-8D-iba" collectionClass="NSMutableArray" id="KUb-7E-LX5"/>
+                        <outletCollection property="valueTextFields" destination="i2q-Aj-N7l" collectionClass="NSMutableArray" id="6Mj-U1-mAd"/>
+                        <outletCollection property="valueTextFields" destination="hmu-8D-iba" collectionClass="NSMutableArray" id="x5D-jh-Hta"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
