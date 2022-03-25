@@ -67,9 +67,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="firstValueTextField" destination="i2q-Aj-N7l" id="TGX-Mi-57g"/>
                         <outlet property="resultLabel" destination="Y6f-rJ-2MN" id="Vug-22-Yue"/>
-                        <outletCollection property="valueTextFields" destination="i2q-Aj-N7l" collectionClass="NSMutableArray" id="6Mj-U1-mAd"/>
-                        <outletCollection property="valueTextFields" destination="hmu-8D-iba" collectionClass="NSMutableArray" id="x5D-jh-Hta"/>
+                        <outlet property="secondValueTextField" destination="hmu-8D-iba" id="uWN-Ix-Oha"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

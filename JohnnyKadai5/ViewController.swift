@@ -8,11 +8,19 @@
 import UIKit
 
 final class ViewController: UIViewController {
-    private let firstValueAlert = "割られる数を入力してください"
-    private let secondValueAlert = "割る数を入力してください"
-    private let secondValueIsZeroAlert = "割る数は0以外の値を入力してください"
+    private enum Messsage {
+        static let firstValueAlert = "割られる数を入力してください"
+        static let secondValueAlert = "割る数を入力してください"
+        static let secondValueIsZeroAlert = "割る数は0以外の値を入力してください"
+    }
 
-    @IBOutlet private var valueTextFields: [UITextField]!
+    private var valueTextFields: [UITextField] {
+        [firstValueTextField, secondValueTextField]
+    }
+
+    @IBOutlet private weak var firstValueTextField: UITextField!
+
+    @IBOutlet private weak var secondValueTextField: UITextField!
 
     @IBOutlet private weak var resultLabel: UILabel!
 
@@ -21,22 +29,21 @@ final class ViewController: UIViewController {
     }
 
     private func checkTextFieldsValue() {
-        switch valueTextFields[0].text {
-        case "":
-            showAlert(messeage: firstValueAlert)
-        default:
-            switch valueTextFields[1].text {
-            case "":
-                showAlert(messeage: secondValueAlert)
-            default:
-                let values = valueTextFields.map { $0.textToDouble }
-                guard !values[1].isZero else {
-                    showAlert(messeage: secondValueIsZeroAlert)
-                    return
-                }
-                resultLabel.text = String(values[0] / values[1])
-            }
+        let values = valueTextFields.map { $0.textToDouble }
+
+        guard let firstValue = values[0] else {
+            showAlert(messeage: Messsage.firstValueAlert)
+            return
         }
+        guard let secondValue = values[1] else {
+            showAlert(messeage: Messsage.secondValueAlert)
+            return
+        }
+        guard !secondValue.isZero else {
+            showAlert(messeage: Messsage.secondValueIsZeroAlert)
+            return
+        }
+        resultLabel.text = String(firstValue / secondValue)
     }
 
     private func showAlert(messeage: String) {
@@ -49,7 +56,7 @@ final class ViewController: UIViewController {
 }
 
 private extension UITextField {
-    var textToDouble: Double {
-        text.flatMap { Double($0) } ?? 0
+    var textToDouble: Double? {
+        text.flatMap { Double($0) }
     }
 }
