@@ -18,7 +18,7 @@ final class ViewController: UIViewController {
         [firstValueTextField, secondValueTextField]
     }
 
-    @IBOutlet private weak var firstValueTextField: UITextField!
+    @IBOutlet private weak var firstValueTextField: UITextField! 
 
     @IBOutlet private weak var secondValueTextField: UITextField!
 
@@ -28,22 +28,26 @@ final class ViewController: UIViewController {
         checkTextFieldsValue()
     }
 
-    private func checkTextFieldsValue() {
-        let values = valueTextFields.map { $0.textToDouble }
+    override func viewDidLoad() {
+        setUpKeyboardType()
+    }
 
-        guard let firstValue = values[0] else {
-            showAlert(messeage: Messsage.firstValueAlert)
-            return
-        }
-        guard let secondValue = values[1] else {
-            showAlert(messeage: Messsage.secondValueAlert)
-            return
-        }
-        guard !secondValue.isZero else {
-            showAlert(messeage: Messsage.secondValueIsZeroAlert)
-            return
-        }
-        resultLabel.text = String(firstValue / secondValue)
+    private func checkTextFieldsValue() {
+                let values = valueTextFields.map { $0.textToDouble }
+
+                guard let firstValue = values[0] else {
+                    showAlert(messeage: Messsage.firstValueAlert)
+                    return
+                }
+                guard let secondValue = values[1] else {
+                    showAlert(messeage: Messsage.secondValueAlert)
+                    return
+                }
+                guard !secondValue.isZero else {
+                    showAlert(messeage: Messsage.secondValueIsZeroAlert)
+                    return
+                }
+                resultLabel.text = String( firstValue / secondValue )
     }
 
     private func showAlert(messeage: String) {
@@ -52,6 +56,10 @@ final class ViewController: UIViewController {
         alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
 
         present(alertController, animated: true, completion: nil)
+    }
+
+    private func setUpKeyboardType() {
+        valueTextFields.forEach { $0.keyboardType = .numberPad }
     }
 }
 
